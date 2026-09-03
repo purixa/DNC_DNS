@@ -608,7 +608,7 @@ server:
 
     edns-buffer-size: 1232
 
-    auto-trust-anchor-file: "/var/lib/unbound/root.key"
+   
 EOF
 
     if [[ ! -s /var/lib/unbound/root.key ]]; then
