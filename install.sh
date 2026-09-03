@@ -676,7 +676,7 @@ install_adguard() {
         die "Failed to download the AdGuard Home installer. Check network connectivity."
     fi
 
-    if ! sh /tmp/adguard-install.sh -v -c "$ADGUARD_DIR" >>"$PDNC_LOG" 2>&1; then
+    if ! sh /tmp/adguard-install.sh -v -c release >>"$PDNC_LOG" 2>&1; then
         error "AdGuard Home installer failed."
         die "See $PDNC_LOG for details."
     fi
