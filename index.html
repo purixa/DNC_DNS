@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDNC DNS PROXY — پنل مدیریت</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div id="login-screen" class="screen">
+  <div class="login-card">
+    <div class="brand">
+      <span class="brand-mark">PDNC</span>
+      <span class="brand-sub">DNS PROXY — پنل مدیریت</span>
+    </div>
+    <form id="login-form">
+      <label>نام کاربری</label>
+      <input type="text" id="login-username" autocomplete="username" required>
+      <label>رمز عبور</label>
+      <input type="password" id="login-password" autocomplete="current-password" required>
+      <button type="submit">ورود</button>
+      <div id="login-error" class="error-text"></div>
+    </form>
+  </div>
+</div>
+
+<div id="app-screen" class="screen hidden">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">PDNC</span>
+      <span class="brand-sub">DNS PROXY</span>
+    </div>
+    <div class="top-actions">
+      <span id="server-ip-badge" class="badge"></span>
+      <button id="logout-btn" class="ghost-btn">خروج</button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="card">
+      <h2>وضعیت سرویس‌ها</h2>
+      <div id="status-grid" class="status-grid">
+        <div class="status-item" data-svc="unbound">
+          <span class="dot"></span> Unbound
+        </div>
+        <div class="status-item" data-svc="adguard">
+          <span class="dot"></span> AdGuard Home
+        </div>
+        <div class="status-item" data-svc="haproxy">
+          <span class="dot"></span> HAProxy
+        </div>
+      </div>
+      <button id="restart-btn" class="secondary-btn">راه‌اندازی مجدد سرویس‌ها</button>
+    </section>
+
+    <section class="card">
+      <h2>افزودن دامنه</h2>
+      <form id="add-domain-form" class="inline-form">
+        <input type="text" id="new-domain-input" placeholder="example.com" required>
+        <button type="submit">افزودن</button>
+      </form>
+      <div id="add-domain-msg" class="msg"></div>
+    </section>
+
+    <section class="card">
+      <h2>بازی‌های محبوب</h2>
+      <p class="hint">با یک کلیک، دامنه‌های شناخته‌شده‌ی هر بازی به‌صورت خودکار اضافه می‌شوند.</p>
+      <div id="gamepacks-grid" class="gamepacks-grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>دامنه‌های مدیریت‌شده</h2>
+      <div id="domains-list" class="domains-list"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

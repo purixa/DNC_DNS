@@ -1,0 +1,286 @@
+:root {
+  --bg: #0b0f14;
+  --bg-elev: #121821;
+  --bg-elev-2: #182130;
+  --border: #26303e;
+  --text: #e6edf5;
+  --text-dim: #92a1b3;
+  --accent: #33c9ff;
+  --accent-2: #6ee7c6;
+  --danger: #ff5c73;
+  --ok: #37d67a;
+  --warn: #ffb648;
+  --radius: 14px;
+  font-family: "Vazirmatn", "IRANSans", "Segoe UI", Tahoma, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% -10%, #16202e 0%, var(--bg) 55%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- login ---------- */
+
+#login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.brand-mark {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-sub {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+#login-form { display: flex; flex-direction: column; gap: 6px; }
+
+label { font-size: 13px; color: var(--text-dim); margin-top: 10px; }
+
+input[type="text"], input[type="password"] {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus { border-color: var(--accent); }
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
+}
+
+#login-form button[type="submit"] {
+  margin-top: 18px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #04121a;
+}
+
+.error-text {
+  color: var(--danger);
+  font-size: 13px;
+  min-height: 18px;
+  margin-top: 10px;
+}
+
+/* ---------- app shell ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(18,24,33,0.7);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.top-actions { display: flex; align-items: center; gap: 12px; }
+
+.badge {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.ghost-btn:hover { color: var(--text); border-color: var(--accent); }
+
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.card h2 {
+  margin: 0 0 14px 0;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.hint { color: var(--text-dim); font-size: 13px; margin: -6px 0 14px; }
+
+/* ---------- status ---------- */
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.status-item {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--text-dim);
+  flex-shrink: 0;
+}
+.status-item.up .dot { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+.status-item.down .dot { background: var(--danger); box-shadow: 0 0 8px var(--danger); }
+
+.secondary-btn {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.secondary-btn:hover { border-color: var(--accent); }
+
+/* ---------- forms ---------- */
+
+.inline-form { display: flex; gap: 8px; }
+.inline-form input {
+  flex: 1;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 14px;
+}
+.inline-form button {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #04121a;
+}
+
+.msg { font-size: 13px; margin-top: 10px; min-height: 16px; }
+.msg.ok { color: var(--ok); }
+.msg.err { color: var(--danger); }
+
+/* ---------- gamepacks ---------- */
+
+.gamepacks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.gamepack-card {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gamepack-card .label { font-size: 13px; font-weight: 600; }
+.gamepack-card .domains { font-size: 11px; color: var(--text-dim); line-height: 1.5; }
+
+.gamepack-card button {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  padding: 6px 10px;
+}
+.gamepack-card button:hover { background: var(--accent); color: #04121a; }
+.gamepack-card button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+
+/* ---------- domains list ---------- */
+
+.domains-list { display: flex; flex-direction: column; gap: 8px; }
+
+.domain-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  direction: ltr;
+  text-align: left;
+}
+
+.domain-row button {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-size: 12px;
+  padding: 5px 10px;
+}
+.domain-row button:hover { background: var(--danger); color: #250008; }
+
+.empty-note { color: var(--text-dim); font-size: 13px; }
